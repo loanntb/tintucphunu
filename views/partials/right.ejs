@@ -1,0 +1,136 @@
+<br>
+<div class="col-lg-4 col-md-3 col-sm-12 col-xs-12">
+    <div class="row">
+        <div class="right_bar">
+            <div class="single_leftbar wow fadeInDown">
+                <h2><span>Tin Tức Phổ Biến</span></h2>
+                <% if(data.popularPost.length > 0){%>
+                <div class="popular-post">
+                    <div class="singleleft_inner">
+                        <ul class="catg3_snav ppost_nav wow fadeInDown">
+                            <% data.popularPost.forEach(function (i){%>
+                            <li>
+                                <div class="media" style="margin-bottom: -20px;"> <a
+                                        href="/chi-tiet/<%= i.slugT%>/<%= i.slug%>/<%= i.type_id%>/<%= i.post_id%>"
+                                        class="media-left"> <img alt="" src="/Uploads/Images/<%=i.image%>"
+                                            class="img-responsive" style="height: 40px;">
+                                    </a>
+                                    <div class="media-body"> <a
+                                            href="/chi-tiet/<%= i.slugT%>/<%= i.slug%>/<%= i.type_id%>/<%= i.post_id%>"
+                                            class="catg_title"> <%= i.title%></a></div>
+                                </div>
+                            </li>
+                            <%}) %>
+                        </ul>
+                    </div>
+                </div>
+                <%} else{%>
+                <div class="popular-post" style="display: none;"> </div>
+                <%}%>
+               
+            </div>
+
+            <div class="single_leftbar wow fadeInDown">
+                <h2><span>Like fanpage</span></h2>
+                <div class="singleleft_inner">
+                    <div id="fb-root"></div>
+                    <script>
+                        (function (d, s, id) {
+                            var js, fjs = d.getElementsByTagName(s)[0];
+                            if (d.getElementById(id)) return;
+                            js = d.createElement(s);
+                            js.id = id;
+                            js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.0&appId=204934146962428&autoLogAppEvents=1';
+                            fjs.parentNode.insertBefore(js, fjs);
+                        }(document, 'script', 'facebook-jssdk'));
+                    </script>
+                    <div class="fb-page" data-href="https://www.facebook.com/FacebookVietnam/" data-width="360"
+                        data-height="215" data-small-header="false" data-adapt-container-width="true"
+                        data-hide-cover="false" data-show-facepile="true">
+                        <blockquote cite="https://www.facebook.com/FacebookVietnam/" class="fb-xfbml-parse-ignore"><a
+                                href="https://www.facebook.com/FacebookVietnam/">Youth</a></blockquote>
+                    </div>
+                </div>
+            </div>
+            <div class="single_leftbar wow fadeInDown">
+                <ul class="nav nav-tabs custom-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab"
+                            data-toggle="tab">Mới Nhất</a></li>
+                    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Xem
+                            Nhiều</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade in active" id="home">
+                        <% if(data.mostPopular.length > 0){%>
+                <div class="tab-content">
+                    <ul class="catg3_snav ppost_nav wow fadeInDown">
+                        <% data.mostPopular.forEach(function (i){%>
+                        <li>
+                            <div class="media" style="margin-bottom: -20px;"> <a class="media-left"
+                                    href="/chi-tiet/<%= i.slugT%>/<%= i.slug%>">
+                                    <img src="/Uploads/Images/<%=i.image%>" alt="" class="img-responsive"
+                                        style="height: 40px;"> </a>
+                                <div class="media-body"> <a class="catg_title"
+                                        href="/chi-tiet/<%= i.slugT%>/<%= i.slug%>">
+                                        <%= i.title%></a>
+                                </div>
+                            </div>
+                        </li>
+                        <%}) %>
+                    </ul>
+                </div>
+                <%} else{%>
+                <div class="tab-content" style="display: none;"> </div>
+                <%}%>   
+                        
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="profile">
+                            <% if(data.mostReader.length > 0){%>
+                <div class="tab-content">
+                    <ul class="catg3_snav ppost_nav wow fadeInDown">
+                        <% data.mostReader.forEach(function (i){%>
+                        <li>
+                            <div class="media" style="margin-bottom: -20px;"> <a class="media-left"
+                                    href="/chi-tiet/<%= i.slugT%>/<%= i.slug%>">
+                                    <img src="/Uploads/Images/<%=i.image%>" alt="" class="img-responsive"
+                                        style="height: 40px;"> </a>
+                                <div class="media-body"> <a class="catg_title"
+                                        href="/chi-tiet/<%= i.slugT%>/<%= i.slug%>">
+                                        <%= i.title%></a>
+                                </div>
+                            </div>
+                        </li>
+                        <%}) %>
+                    </ul>
+                </div>
+                <%} else{%>
+                <div class="tab-content" style="display: none;"> </div>
+                <%}%> 
+                    </div>
+                </div>
+            </div>
+            <% if(data.nav.length > 0){%>
+                <div class="category">
+                    <div class="single_leftbar wow fadeInDown">
+                        <h2><span>chuyên mục</span></h2>
+                        <div class="singleleft_inner">
+                            <ul class="link_nav">
+                                <select name="category_id" id="controlSelect" class="catgArchive"
+                                    onchange="location = this.value;">
+                                    <option>Lựa chọn thể loại</option>
+                                    <% data.nav.forEach(function (i){ %>
+                                    <option value="/danh-sach/<%=i.slugC%>/<%=i.category_id%>">
+                                        <%=i.name%>
+                                    </option>
+                                    <% }) %>
+                                </select>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <%} else{%>
+                <div class="category" style="display: none;"> </div>
+                <%}%>
+        </div>
+    </div>
+</div>

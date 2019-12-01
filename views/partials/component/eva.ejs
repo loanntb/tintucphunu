@@ -1,0 +1,30 @@
+<% if(data.evaTam.length > 0){%>
+    <div class="content">
+        <div class="single_category wow fadeInDown">
+            <div class="category_title"> <a href="#">eva tám</a></div>
+            <div class="single_category_inner">
+                <ul class="catg3_snav catg5_nav">
+                    <% data.evaTam.forEach(function (i){%>
+                    <li>
+                        <div class="media" style="padding: 5px;"> <a
+                                href="/chi-tiet/<%= i.slugT%>/<%= i.slug%>/<%= i.type_id%>/<%= i.post_id%>"
+                                class="media-left">
+                                <img alt="" src="/Uploads/Images/<%=i.image%>" class="img-responsive"
+                                    style="height: 40px;"> </a>
+                            <div class="media-body"> <a
+                                    href="/chi-tiet/<%= i.slugT%>/<%= i.slug%>/<%= i.type_id%>/<%= i.post_id%>"
+                                    class="catg_title"><%= i.title%></a>
+                                <div class="sing_commentbox">
+                                    <p class="post-summary"><%= i.description%></p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <%}) %>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <%} else{%>
+        <div class="content" style="display: none;"> </div>
+    <%}%>

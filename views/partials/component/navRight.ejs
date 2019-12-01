@@ -1,0 +1,20 @@
+<li class="dropdown">
+    <a id="cookies" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+        aria-expanded="false"><img src="/images/vi.png" alt="Việt Nam">
+        Vietnamese <i class="fa fa-caret-down"></i></a>
+    <ul class="dropdown-menu language">
+        <li><a href="/change-lang/en"><span><img src="/images/en.png" alt=""></span> English</a>
+        </li>
+        <li><a href="/change-lang/vi"><span><img src="/images/vi.png" alt=""></span>
+                Vietnamese</a> </li>
+    </ul>
+    <script>
+        var x = document.cookie;
+        var a = document.getElementById('cookies');
+        if (x == 'lang=vi') {
+            a.innerHTML = "<img src='/images/vi.png' alt='Việt Nam'> Vietnamese <i class='fa fa-caret-down'></i>";
+        } else if (x == 'lang=en') {
+            a.innerHTML = "<img src='/images/en.png' alt='English'> English <i class='fa fa-caret-down'></i>";
+        }
+    </script>
+</li>

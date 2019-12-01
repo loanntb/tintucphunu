@@ -1,0 +1,58 @@
+<% layout('../layouts') -%>
+<div class="thumbnail_slider_area"></div>
+<div id="contentbody">
+    <div class="row">
+        <div class="col-lg-8 col-md-7 col-sm-8 col-xs-12">
+            <br>
+            <div class="row">
+                <div class="middle_bar">
+                    <div class="single_post_area">
+                        <ol class="breadcrumb">
+                            <li><a href="/"><i class="fa fa-home"></i>Home<i class="fa fa-angle-right"></i></a></li>
+                            <li><a href="/danh-sach/<%=data.post[0].slugC%>"><%= data.post[0].name%><i
+                                        class="fa fa-angle-right"></i></a></li>
+                            <li><a href="/danh-sach/loai-tin/<%=data.post[0].slugT%>"><%= data.post[0].type_name%></a>
+                            </li>
+                        </ol>
+                        <h3 class="post_title wow "><%= data.post[0].title%></h3>
+                        <div class="single_post_content">
+                            <img class="img-center" src="/Uploads/Images/<%=data.post[0].image%>" alt="">
+                            <br>
+                            <blockquote> <%= data.post[0].description%></blockquote>
+                            <div><%- data.post[0].content%></div>
+                        </div>
+                        <div class="details__tags">
+                            <ul class="breadcrumb">
+                                <% data.tags.forEach(function (i){%>
+                                <% let tag = i.tag.split(',')%>
+                                <% tag.forEach(function (t){%>
+                                <li><a href="/tags/<%=i.slug_tag%>"><%= t%></a></li>
+                                <%})%>
+
+                                <%})%>
+                            </ul>
+                        </div>
+                        <div class="social_area wow fadeInLeft">
+                            <div class="fb-comments"
+                                data-href="https://developers.facebook.com/docs/plugins/comments#youth-news#chitiettintuc<%= data.post[0].slug%>"
+                                data-width="760" data-numposts="5"></div>
+                        </div>
+                        <div class="related_post">
+                            <h2 class="wow fadeInLeftBig">Bài viết liên quan </h2>
+                            <ul class="recentpost_nav relatedpost_nav wow fadeInDown animated">
+                                <% data.relatedPost.forEach(function (i){%>
+                                <li><a href="/chi-tiet/<%= i.slugT%>/<%= i.slug%>"><img
+                                            alt="" src="/Uploads/Images/<%=i.image%>"
+                                            style="width: 150px; height: 80px;"></a> <a
+                                        href="/chi-tiet/<%= i.slugT%>/<%= i.slug%>"
+                                        class="recent_title"><%=i.title%></a></li>
+                                <%})%>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%include ../partials/right%>
+    </div>
+</div>

@@ -1,0 +1,89 @@
+<footer id="footer">
+    <div class="footer_top">
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="single_footer_top wow fadeInLeft">
+                <h2>Thông tin</h2>
+                <div class="subscribe_area">
+                    <p>Nghệ An</p>
+                    <p>Báo Phụ Nữ</p>
+                    <p>Phone: (+84) 0374790140</p>
+                    <p>Email: <a href="mailto:phunu24h7@gmail.com" class="">phunu24h7@gmail.com</a></p>
+                    <br>
+                    <div class="footer_bottom_left">
+                        <ul>
+                            <li><a class="tootlip" data-toggle="tooltip" data-placement="top" title="Twitter"
+                                    href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a class="tootlip" data-toggle="tooltip" data-placement="top" title="Facebook"
+                                    href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a class="tootlip" data-toggle="tooltip" data-placement="top" title="Googel+"
+                                    href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a class="tootlip" data-toggle="tooltip" data-placement="top" title="Youtube"
+                                    href="#"><i class="fa fa-youtube"></i></a></li>
+                            <li><a class="tootlip" data-toggle="tooltip" data-placement="top" title="Rss" href="#"><i
+                                        class="fa fa-rss"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="single_footer_top wow fadeInRight">
+                <h2>Thẻ</h2>
+                <% if(data.gettag.length > 0){%>
+                <ul class="footer_labels">
+                    <% data.gettag.forEach(function (i){%>
+                    <li><a href="/tags/<%=i.slug_tag%>"> <%= i.tags%></a></li>
+
+                    <%})%>
+                </ul>
+                <%} else{%>
+                    <div class="footer_labels" style="display: none;"> </div>
+                <%}%>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="single_footer_top wow fadeInRight">
+                <h2>Contact Form</h2>
+                <form action="/contact/gui" method="post" class="contact_form">
+                    <label>Tên</label>
+                    <input class="form-control" type="text" name="name">
+                    <label>Email*</label>
+                    <input class="form-control" type="email" name="email">
+                    <label>Tin nhắn*</label>
+                    <textarea class="form-control" cols="30" rows="10" name="message"></textarea>
+                    <input class="send_btn" type="submit" value="Gửi">
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="footer_bottom">
+        <div class="footer_bottom_left">
+            <p class="copyright">Copyright &copy; <a href="./">Woman</a></p>
+        </div>
+    </div>
+</footer>
+
+</div>
+</div>
+<script src="/assets/js/jquery.min.js"></script>
+<script src="/assets/js/wow.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+<script src="/assets/js/slick.min.js"></script>
+<script src="/assets/js/jquery.li-scroller.1.0.js"></script>
+<script src="/assets/js/custom.js"></script>
+<script src="/assets/js/custom.js"></script>
+<script src="/assets/js/typeahead.min.js"></script>
+<script src="/assets/js/main.js"></script>
+
+<div id="fb-root"></div>
+<script>(function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.0&appId=190953055021978&autoLogAppEvents=1';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+</body>
+
+</html>

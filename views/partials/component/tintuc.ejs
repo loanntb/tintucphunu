@@ -1,0 +1,22 @@
+<% if(data.tinTuc.length > 0){%>
+<div class="content">
+    <div class="single_category  wow fadeInDown">
+        <div class="category_title"> <a href="#">tin tức</a></div>
+        <div class="single_category_inner">
+            <ul class="catg_nav catg_nav2">
+                <% data.tinTuc.forEach(function (i){%>
+                <li>
+                    <div class="catgimg_container"> <a class="catg1_img" href="/chi-tiet/<%= i.slugT%>/<%= i.slug%>">
+                            <img src="/Uploads/Images/<%=i.image%>" alt=""> </a></div>
+                    <a class="catg_title" href="/chi-tiet/<%= i.slugT%>/<%= i.slug%>">
+                        <%= i.title%></a>
+                    <p class="post-summary"><%= i.description%></p>
+                </li>
+                <%}) %>
+            </ul>
+        </div>
+    </div>
+</div>
+<%} else{%>
+<div class="content" style="display: none;"> </div>
+<%}%>

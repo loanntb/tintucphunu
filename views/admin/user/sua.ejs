@@ -1,0 +1,100 @@
+<%include ../partials/header%>
+</head>
+
+<body>
+    <div id="wrapper">
+        <%include ../partials/menu%>
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="page-header">Hồ Sơ</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <style>
+                            label {
+                                color: #fff;
+                                font-size: 20px;
+                                margin-top: 20px;
+                            }
+                        </style>
+                        <div class="card-block">
+                            <form action="/admin/user/sua/<%=data.roles[0].user_id%>" method="post" onSubmit="return checkPassword(this)">
+                            <div class=" form-group">
+                                <label>Email</label>
+                                <input class="form-control" name="email" placeholder="Nhập email"
+                                    value="<%=data.roles[0].email%>">
+                            </div>
+                             <div class="form-group">
+                            <label>Họ Tên</label>
+                            <input class="form-control" name="full_name" placeholder="user@example.com"
+                                value="<%=data.roles[0].full_name%>">
+                         </div>
+                            <div class="form-group">
+                            <label>Quyền</label>
+                            <select name="role_id" class="form-control" id="controlSelect">
+                                <option value="<%=data.roles[0].role_id%>"><%=data.roles[0].role_name%></option>
+                                <% data.role.forEach(function (i){ %>
+                                <% if(i.role_id === data.roles[0].role_id){%>
+                                <option value="<%=i.role_id%>" style="display: none;"><%=i.role_name%></option>
+                                <%} else{%>
+                                <option value="<%=i.role_id%>"><%=i.role_name%></option>
+                                <%}%>
+                             <% }) %>
+                            </select>
+                            </div>
+                         <div class="form-group">
+                            <label>Mật Khẩu</label>
+                            <input type="password" class="form-control" name="password" placeholder="Nhập mật khẩu"
+                                value="<%=data.roles[0].password%>">
+                         </div>
+
+                        <div class="form-group">
+                            <label>Xác nhận mật khẩu</label>
+                            <input type="password" class="form-control" name="repassword"
+                                placeholder="Nhập lại mật khẩu" value="">
+                        </div>
+
+                        <button type="reset" class="btn btn-default">Làm mới</button>
+                        <button type="submit" value="submit" class="btn btn-primary submit">Sửa</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- DataTables JavaScript -->
+    <script src="/admin/vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="/admin/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+    <script src="/admin/vendor/datatables-responsive/dataTables.responsive.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="/admin/dist/js/sb-admin-2.js"></script>
+    <script>
+        function checkPassword(form) {
+            password = form.password.value;
+            repassword = form.repassword.value;
+    
+            // If password not entered 
+            if (password == '')
+                alert("Vui lòng nhập mật khẩu");
+    
+            // If confirm password not entered 
+            else if (repassword == '')
+                alert("Vui lòng nhập mật khẩu xác nhận");
+    
+            // If Not same return False.     
+            else if (password != repassword) {
+                alert("\nXác nhận mật khẩu!..")
+                return false;
+            }
+            // If same return True. 
+            else {
+                return true;
+            }
+        } 
+    </script>
+
+</body>

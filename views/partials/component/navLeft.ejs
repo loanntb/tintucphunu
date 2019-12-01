@@ -1,0 +1,31 @@
+<ul class="nav navbar-nav custom_nav">
+    <li>
+        <a href="/">
+            HOME
+        </a>
+    </li>
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false">
+            CHUYÊN MỤC<span class="caret"></span></a>
+        <% if(data.nav.length > 0){%>
+            <ul class="dropdown-menu">
+                <% data.nav.forEach(function (i){%>
+                <li class="dropdown-submenu">
+                    <a class="test" tabindex="-1" href="/danh-sach/<%=i.slugC%>/<%=i.category_id%>">
+                        <%= i.name%></a>
+                    <ul class="dropdown-menu">
+                        <% let type_name = i.type_name.split(',')%>
+                        <% type_name.forEach(function (t){%>
+                        <li><a tabindex="-1" href="/"><%= t%></a></li>
+                        <%})%>
+                    </ul>
+                </li>
+                <%})%>
+            </ul>
+        <%} else{%>
+        <div class="dropdown-submenu" style="display: none;"> </div>
+        <%}%>
+    </li>
+
+</ul>

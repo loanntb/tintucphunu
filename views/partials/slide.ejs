@@ -1,0 +1,14 @@
+<% if(data.slidepost.length > 0){%>
+<div class="thumbnail_slider_area">
+    <div class="owl-carousel">
+        <% data.slidepost.forEach(function (i){%>
+        <div class="signle_iteam"> <img src="/Uploads/Images/<%=i.image%>" alt="" style="height: 370px;"
+                class="img-responsive">
+            <a class="slider_tittle" href="/chi-tiet/<%= i.slugT%>/<%= i.slug%>"><%= i.title%> </a>
+        </div>
+        <%})%>
+    </div>
+</div>
+<%} else{%>
+    <div class="thumbnail_slider_area" style="display: none;"> </div>
+<%}%>  

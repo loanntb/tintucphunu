@@ -1,0 +1,20 @@
+<div class="modal fade" id="myModal<%=i.post_id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Phục hồi</h4>
+                </div>
+                <form action="/admin/baiviet/khoi-phuc/<%=i.post_id%>" method="post" accept-charset="utf-8">
+                    <div class="modal-body">
+                            <input type="text" class="form-control" name="name" value=" <%=i.title%>"> 
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Phục hồi</button>
+                    </div>
+                </form>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>

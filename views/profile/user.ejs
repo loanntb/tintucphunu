@@ -1,0 +1,74 @@
+<div class="pfl-wrapper">
+    <nav id="nav">
+        <div class="nav-icon"><span></span></div>
+        <div class="black"><a href="../">Trở về trang chủ</a></div>
+    </nav>
+    <article>
+        <div class="profile-photo img-rounded"></div>
+        <div class="profile-info">
+            <h1> <%= data.users[0].full_name %></h1>
+            <p><%= data.users[0].email %></p>
+        </div>
+        <center>
+            <button id="editToggle" class=""><i class="glyphicon glyphicon-edit"></i> Sửa thông tin cá
+                nhân</button>
+        </center>
+        <div class="card-block">
+            <div id="mainEdit" class="edit">
+                <form action="/user/sua/<%= data.users[0].user_id %>" method="post"
+                    onSubmit="return checkPassword(this)">
+                    <div class=" form-group">
+                        <label>Email</label>
+                        <input class="form-control" name="email" placeholder="Nhập email"
+                            value="<%=data.users[0].email%>">
+                    </div>
+                    <div class="form-group">
+                        <label>Họ Tên</label>
+                        <input class="form-control" name="full_name" placeholder="user@example.com"
+                            value="<%=data.users[0].full_name %>">
+                    </div>
+                    <div class="form-group">
+                        <label>Mật Khẩu</label>
+                        <input type="password" class="form-control" name="password" placeholder="Nhập mật khẩu"
+                            value="<%=data.users[0].password%>">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Xác nhận mật khẩu</label>
+                        <input type="password" class="form-control" name="repassword" placeholder="Nhập lại mật khẩu"
+                            value="">
+                    </div>
+                    <div class="btn-set">
+                        <button type="reset" class="btn btn-default btn-edit">Làm mới</button>
+                        <button type="submit" value="submit" class="btn btn-primary submit btn-edit">Sửa</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </article>
+</div>
+<script>
+    var mainEdit = document.getElementById('mainEdit');
+    var editToggle = document.getElementById('editToggle');
+    mainEdit.classList.add('collapsed');
+    function mainEditToggle() {
+        mainEdit.classList.toggle('collapsed');
+    }
+    editToggle.addEventListener('click', mainEditToggle);
+    function checkPassword(form) {
+        password = form.password.value;
+        repassword = form.repassword.value;
+        if (password == '')
+            alert("Vui lòng nhập mật khẩu");
+        else if (repassword == '')
+            alert("Vui lòng nhập mật khẩu xác nhận");   
+        else if (password != repassword) {
+            alert("\nXác nhận mật khẩu!..")
+            return false;
+        }
+        else {
+            return true;
+        }
+    } 
+</script>

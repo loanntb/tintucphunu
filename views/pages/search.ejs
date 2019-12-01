@@ -1,0 +1,46 @@
+<% layout('../layouts') -%>
+
+<div class="thumbnail_slider_area"></div>
+
+<section id="contentbody">
+  <div class="row">
+
+    <div class="col-lg-8 col-md-7 col-sm-8 col-xs-12">
+        <br>
+        <div class="row">
+            <div class="middle_bar">
+                <div class="single_post_area">
+                    <ol class="breadcrumb">
+                        <li><a href="../"><i class="fa fa-home"></i>Home<i class="fa fa-angle-right"></i></a></li>
+                        <li class="active">Kết quả tìm kiếm</li>
+                    </ol>
+                    <div class="col-md-12">
+                        <div style="text-align: center;"><h2>Tìm thấy <%= data.list.length%> tin tức </h2></div>
+                        <div class="single_category wow fadeInDown">
+                            <div class="single_category_inner">
+                                <ul class="catg8_snav catg9_nav">
+                                    <% data.list.forEach(function (i){%>
+                                    <li>
+                                        <div class="media"> <a href="/chi-tiet/<%= i.slugT%>/<%= i.slug%>/<%= i.type_id%>/<%= i.post_id%>" class="media-left"> <img alt="" src="/Uploads/Images/<%=i.image%>" class="img-responsive"> </a>
+                                            <div class="media-body"> <a href="/chi-tiet/<%= i.slugT%>/<%= i.slug%>/<%= i.type_id%>/<%= i.post_id%>" class="catg_title"><%= i.title%></a>
+                                                <div class="sing_commentbox">
+                                                    <p><i class="fa fa-calendar"></i><%= i.publish_date%></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <%}) %>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%include ../partials/right%>
+
+  </div>
+</section>
